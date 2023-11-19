@@ -1,37 +1,36 @@
 class Transform:
-    posX: int
-    posY: int
-    posZ: int
-    rotX: int
-    rotY: int
-    rotZ: int
-    scaleX: int
-    scaleY: int
-    scaleZ: int
+    pos_x: int
+    pos_y: int
+    pos_z: int
+    rot_x: int
+    rot_y: int
+    rot_z: int
+    scale_x: int
+    scale_y: int
+    scale_z: int
 
-    # noinspection PyPep8Naming
-    def __init__(self, posX: int = 0, posY: int = 1, posZ: int = 0,
-                 rotX: int = 0, rotY: int = 180, rotZ: int = 180,
-                 scaleX: int = 1, scaleY: int = 1, scaleZ: int = 1):
-        self.posX = posX
-        self.posY = posY
-        self.posZ = posZ
-        self.rotX = rotX
-        self.rotY = rotY
-        self.rotZ = rotZ
-        self.scaleX = scaleX
-        self.scaleY = scaleY
-        self.scaleZ = scaleZ
+    def __init__(self, pos_x: int = 0, pos_y: int = 0, pos_z: int = 0,
+                 rot_x: int = 0, rot_y: int = 180, rot_z: int = 180,
+                 scale_x: int = 1, scale_y: int = 1, scale_z: int = 1):
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+        self.pos_z = pos_z
+        self.rot_x = rot_x
+        self.rot_y = rot_y
+        self.rot_z = rot_z
+        self.scale_x = scale_x
+        self.scale_y = scale_y
+        self.scale_z = scale_z
 
     def to_dict(self) -> dict:
         return {
-            "posX": self.posX,
-            "posY": self.posY,
-            "posZ": self.posZ,
-            "rotX": self.rotX,
-            "rotY": self.rotY,
-            "rotZ": self.rotZ,
-            "scaleX": self.scaleX,
-            "scaleY": self.scaleY,
-            "scaleZ": self.scaleZ
+            "posX": self.pos_x,
+            "posY": self.pos_y,
+            "posZ": self.pos_z,
+            "rotX": self.rot_x,
+            "rotY": self.rot_y,
+            "rotZ": self.rot_z,
+            "scaleX": self.scale_x,
+            "scaleY": self.scale_y,
+            "scaleZ": self.scale_z
         }

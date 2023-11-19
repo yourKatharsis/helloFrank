@@ -16,8 +16,8 @@ class ContainedObject:
 
     def to_dict(self) -> dict:
         return {
-            "card_id": self.card_id,
-            "name": self.name,
-            "nickname": self.nickname,
-            "transform": self.transform
+            "CardID": self.card_id,
+            "Name": self.name,
+            "Nickname": self.nickname,
+            "Transform": self.transform.to_dict()
         }
