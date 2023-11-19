@@ -1,0 +1,188 @@
+{
+  "ObjectStates": [
+    {
+      "Name": "DeckCustom",
+      "ContainedObjects": [
+        {
+          "CardID": 100,
+          "Name": "Card",
+          "Nickname": "Ellywick Tumblestrum",
+          "Transform": {
+            "posX": 0,
+            "posY": 0,
+            "posZ": 0,
+            "rotX": 0,
+            "rotY": 180,
+            "rotZ": 180,
+            "scaleX": 1,
+            "scaleY": 1,
+            "scaleZ": 1
+          }
+        },
+        {
+          "CardID": 200,
+          "Name": "Card",
+          "Nickname": "Ellywick Tumblestrum Emblem",
+          "Transform": {
+            "posX": 0,
+            "posY": 0,
+            "posZ": 0,
+            "rotX": 0,
+            "rotY": 180,
+            "rotZ": 180,
+            "scaleX": 1,
+            "scaleY": 1,
+            "scaleZ": 1
+          }
+        },
+        {
+          "CardID": 300,
+          "Name": "Card",
+          "Nickname": "Fresh Meat",
+          "Transform": {
+            "posX": 0,
+            "posY": 0,
+            "posZ": 0,
+            "rotX": 0,
+            "rotY": 180,
+            "rotZ": 180,
+            "scaleX": 1,
+            "scaleY": 1,
+            "scaleZ": 1
+          }
+        },
+        {
+          "CardID": 400,
+          "Name": "Card",
+          "Nickname": "Izoni, Thousand-Eyed",
+          "Transform": {
+            "posX": 0,
+            "posY": 0,
+            "posZ": 0,
+            "rotX": 0,
+            "rotY": 180,
+            "rotZ": 180,
+            "scaleX": 1,
+            "scaleY": 1,
+            "scaleZ": 1
+          }
+        }
+      ],
+      "DeckIDs": [
+        100,
+        200,
+        300,
+        400
+      ],
+      "CustomDeck": {
+        "1": {
+          "FaceURL": "https://cards.scryfall.io/large/front/0/3/038c97e5-87b2-4534-af7c-f4772f61469c.jpg?1627769302",
+          "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
+          "NumHeight": 1,
+          "NumWidth": 1,
+          "BackIsHidden": true
+        },
+        "2": {
+          "FaceURL": "https://cards.scryfall.io/large/front/2/8/289bd243-8754-49f8-a4f9-0be477c84ee1.jpg?1641306257",
+          "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
+          "NumHeight": 1,
+          "NumWidth": 1,
+          "BackIsHidden": true
+        },
+        "3": {
+          "FaceURL": "https://cards.scryfall.io/large/front/0/0/000ce65b-5347-4a88-81af-be9053e4d3f3.jpg?1562875106",
+          "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
+          "NumHeight": 1,
+          "NumWidth": 1,
+          "BackIsHidden": true
+        },
+        "4": {
+          "FaceURL": "https://cards.scryfall.io/large/front/0/0/003c6e4d-16f4-4ce8-9df2-a59e736b52cd.jpg?1541005763",
+          "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
+          "NumHeight": 1,
+          "NumWidth": 1,
+          "BackIsHidden": true
+        }
+      },
+      "Transform": {
+        "posX": 0,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 180,
+        "scaleX": 1,
+        "scaleY": 1,
+        "scaleZ": 1
+      }
+    },
+    {
+      "Name": "DeckCustom",
+      "ContainedObjects": [
+        {
+          "CardID": 100,
+          "Name": "Card",
+          "Nickname": "Beast",
+          "Transform": {
+            "posX": 0,
+            "posY": 0,
+            "posZ": 0,
+            "rotX": 0,
+            "rotY": 180,
+            "rotZ": 180,
+            "scaleX": 1,
+            "scaleY": 1,
+            "scaleZ": 1
+          }
+        },
+        {
+          "CardID": 200,
+          "Name": "Card",
+          "Nickname": "Insect",
+          "Transform": {
+            "posX": 0,
+            "posY": 0,
+            "posZ": 0,
+            "rotX": 0,
+            "rotY": 180,
+            "rotZ": 180,
+            "scaleX": 1,
+            "scaleY": 1,
+            "scaleZ": 1
+          }
+        }
+      ],
+      "DeckIDs": [
+        100,
+        200
+      ],
+      "CustomDeck": {
+        "1": {
+          "FaceURL": "https://cards.scryfall.io/normal/front/f/5/f5298f77-162b-4a02-9f8d-51ba8b600219.jpg?1641306332",
+          "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
+          "NumHeight": 1,
+          "NumWidth": 1,
+          "BackIsHidden": true
+        },
+        "2": {
+          "FaceURL": "https://cards.scryfall.io/normal/front/0/4/0436e71b-c1f9-4ca8-a29c-775da858a0cd.jpg?1572892506",
+          "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
+          "NumHeight": 1,
+          "NumWidth": 1,
+          "BackIsHidden": true
+        }
+      },
+      "Transform": {
+        "posX": 2.2,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "scaleZ": 1
+      }
+    }
+  ]
+}
