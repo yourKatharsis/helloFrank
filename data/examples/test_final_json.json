@@ -6,10 +6,10 @@
         {
           "CardID": 100,
           "Name": "Card",
-          "Nickname": "Ellywick Tumblestrum",
+          "Nickname": "Adipose Offspring",
           "Transform": {
             "posX": 0,
-            "posY": 0,
+            "posY": 1,
             "posZ": 0,
             "rotX": 0,
             "rotY": 180,
@@ -22,10 +22,10 @@
         {
           "CardID": 200,
           "Name": "Card",
-          "Nickname": "Ellywick Tumblestrum Emblem",
+          "Nickname": "Pompeii",
           "Transform": {
             "posX": 0,
-            "posY": 0,
+            "posY": 1,
             "posZ": 0,
             "rotX": 0,
             "rotY": 180,
@@ -42,18 +42,20 @@
       ],
       "CustomDeck": {
         "1": {
-          "FaceURL": "https://cards.scryfall.io/large/front/0/3/038c97e5-87b2-4534-af7c-f4772f61469c.jpg?1627769302",
+          "FaceURL": "https://cards.scryfall.io/normal/front/6/8/68f91092-b679-46c1-9f0c-3b286ee1d02f.jpg?1696636514",
           "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
           "NumHeight": 1,
           "NumWidth": 1,
-          "BackIsHidden": true
+          "BackIsHidden": true,
+          "UniqueBack": false
         },
         "2": {
-          "FaceURL": "https://cards.scryfall.io/large/front/2/8/289bd243-8754-49f8-a4f9-0be477c84ee1.jpg?1641306257",
+          "FaceURL": "https://cards.scryfall.io/normal/front/a/5/a549ee7a-276b-45eb-a2c7-f74c85dc6a0d.jpg?1696637791",
           "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
           "NumHeight": 1,
           "NumWidth": 1,
-          "BackIsHidden": true
+          "BackIsHidden": true,
+          "UniqueBack": false
         }
       },
       "Transform": {
