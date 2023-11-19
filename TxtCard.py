@@ -6,16 +6,15 @@ class TxtCard:
         self.name = name
         self.count = count
 
-    def __init__(self, row: str):
+    @classmethod
+    def from_string(cls, row: str):
         card_array = row.split(' ', 1)
         try:
-            self.name = card_array[1]
-            self.count = int(card_array[0])
-        except ValueError as err:
-            if len(card_array) > 2:
-                print(f"{err=}: Could not find count and name in string.")
-            else:
-                print(f"{err=}: Could not convert data to an integer.")
+            name = card_array[1]
+            count = int(card_array[0])
+            return TxtCard(name=name, count=count)
+        except (ValueError, IndexError) as err:
+            print(f"{type(err)=}: {err=}\nrow=[{row}]")
         except Exception as err:
-            print(f"Unexpected {err=}, {type(err)=}")
+            print(f"Unexpected {err=}, {type(err)=}\nrow=[{row}]")
             raise
