@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List, Dict, Any, Tuple
 import json
 
 from ScryfallService import ScryfallService
@@ -6,58 +6,59 @@ from TTSClasses.ContainedObject import ContainedObject
 from TTSClasses.CustomDeck import CustomDeck
 from TTSClasses.ObjectState import ObjectState
 from TTSClasses.TTSObject import TTSObject
-from TxtCard import TxtCard
+from Helper.TxtCard import TxtCard
 
 
-def main():
-    f = open('data/examples/deck_file.txt', 'r')
-    cards: List[TxtCard] = []
-    scryfall_cards = []
+def load_from_txt(file_path: str):
+    f = open(file_path, 'r')
+    txt_cards: List[TxtCard] = []
     sf = ScryfallService()
     for r in f:
         r = r.strip('\n')
         if len(r) > 0:
-            cards.append(TxtCard.from_string(row=r))
-    for c in cards:
+            txt_cards.append(TxtCard.from_string(row=r))
+    sf_cards: List[Tuple[int, Any]] = []
+    for c in txt_cards:
         sf_card = sf.get_card_by_fuzzy(fuzzy=c.name)
         if sf_card.status_code == 200:
-            scryfall_cards.append(sf_card.json())
-    print(f"{len(scryfall_cards)} cards loaded from file")
+            sf_tuple = (c.count, sf_card.json())
+            sf_cards.append(sf_tuple)
+    return sf_cards
 
-    """
-    custom_deck: CustomDeck = CustomDeck(face_url="", back_url="")
-    contained_obj: ContainedObject = ContainedObject(card_id=1, nickname="")
-    contained_objs: List[ContainedObject] = [contained_obj]
-    deck_ids: List[int] = [100]
-    obj_state: ObjectState = ObjectState(name="", contained_objects=contained_objs, deck_ids=deck_ids,
-                                         custom_deck={"0": custom_deck})
-    obj_states: List[ObjectState] = [obj_state]
-    tts_obj: TTSObject = TTSObject(object_states=obj_states)
-    """
+
+def sf_cards_to_tts_object(sf_cards: List[TxtCard]):
     obj_states: List[ObjectState] = []
     contained_objs: List[ContainedObject] = []
     deck_ids: List[int] = []
     current_card: int = 0
     custom_deck: Dict[str, CustomDeck] = {}
-    for card in scryfall_cards:
+    for (count, card) in sf_cards:
         current_card += 1
 
-        contained_objs.append(ContainedObject(card_id=current_card*100, nickname=card["name"]))
-        custom_deck_obj: CustomDeck = CustomDeck(face_url=card["image_uris"]["normal"])  # karte ToDo: Auswahl img größe
+        contained_objs.append(ContainedObject(card_id=current_card * 100, nickname=card["name"]))
+        custom_deck_obj: CustomDeck = CustomDeck(face_url=card["image_uris"][
+            "normal"])  # ToDo: double faces (check if key "card_faces" in  response and get 2. items url)
         custom_deck[str(current_card)] = custom_deck_obj
-        deck_ids.append(current_card * 100)  # ToDo: mehrfach hinzufügen wenn count > 1
-
+        for x in range(count):
+            deck_ids.append(current_card * 100)
 
     obj_state: ObjectState = ObjectState(contained_objects=contained_objs,
                                          deck_ids=deck_ids, custom_deck=custom_deck)
     obj_states.append(obj_state)
 
-    tts_obj: TTSObject = TTSObject(object_states=obj_states)
+    return TTSObject(object_states=obj_states)
+
+
+def main():
+    sf_cards = load_from_txt("data/examples/deck_file.txt")
+    print(f"{len(sf_cards)} cards loaded from file")
+
+    tts_obj = sf_cards_to_tts_object(sf_cards=sf_cards)
 
     tts_obj_dict = tts_obj.to_dict()
     # pprint(tts_obj_dict)
     json_obj = json.dumps(tts_obj_dict)
-    print(json_obj)
+    print(json_obj)  # ToDo: write to file
 
 
 if __name__ == '__main__':

@@ -46,19 +46,21 @@
           "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
           "NumHeight": 1,
           "NumWidth": 1,
-          "BackIsHidden": true
+          "BackIsHidden": true,
+          "UniqueBack": false
         },
         "2": {
           "FaceURL": "https://cards.scryfall.io/large/front/2/8/289bd243-8754-49f8-a4f9-0be477c84ee1.jpg?1641306257",
           "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
           "NumHeight": 1,
           "NumWidth": 1,
-          "BackIsHidden": true
+          "BackIsHidden": true,
+          "UniqueBack": false
         }
       },
       "Transform": {
         "posX": 0,
-        "posY": 1,
+        "posY": 0,
         "posZ": 0,
         "rotX": 0,
         "rotY": 180,
