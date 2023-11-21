@@ -1,5 +1,7 @@
+import os
 from typing import List, Dict, Any, Tuple
 import json
+from datetime import datetime
 
 from ScryfallService import ScryfallService
 from TTSClasses.ContainedObject import ContainedObject
@@ -26,7 +28,7 @@ def load_from_txt(file_path: str):
     return sf_cards
 
 
-def sf_cards_to_tts_object(sf_cards: List[TxtCard]):
+def sf_cards_to_tts_object(sf_cards: List[Tuple[int, Any]]):
     obj_states: List[ObjectState] = []
     contained_objs: List[ContainedObject] = []
     deck_ids: List[int] = []
@@ -49,17 +51,16 @@ def sf_cards_to_tts_object(sf_cards: List[TxtCard]):
     return TTSObject(object_states=obj_states)
 
 
-def main():
-    sf_cards = load_from_txt("data/examples/deck_file.txt")
+if __name__ == '__main__':
+    sf_cards = load_from_txt("data/input/deck_file.txt")
     print(f"{len(sf_cards)} cards loaded from file")
 
     tts_obj = sf_cards_to_tts_object(sf_cards=sf_cards)
 
-    tts_obj_dict = tts_obj.to_dict()
-    # pprint(tts_obj_dict)
-    json_obj = json.dumps(tts_obj_dict)
-    print(json_obj)  # ToDo: write to file
+    json_obj = json.dumps(tts_obj.to_dict(), indent=4)
 
-
-if __name__ == '__main__':
-    main()
+    dt = datetime.now().strftime("%Y%m%d%H%M%S")
+    dest_file = f"data/output/tts_deck_{dt}.json"
+    os.makedirs(os.path.dirname(dest_file), exist_ok=True)
+    with open(dest_file, 'w') as dest_file:
+        dest_file.write(json_obj)
