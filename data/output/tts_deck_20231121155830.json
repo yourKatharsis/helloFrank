@@ -1,0 +1,101 @@
+{
+    "ObjectStates": [
+        {
+            "Name": "DeckCustom",
+            "ContainedObjects": [
+                {
+                    "CardID": 100,
+                    "Name": "Card",
+                    "Nickname": "Adipose Offspring",
+                    "Transform": {
+                        "posX": 0,
+                        "posY": 0,
+                        "posZ": 0,
+                        "rotX": 0,
+                        "rotY": 180,
+                        "rotZ": 180,
+                        "scaleX": 1,
+                        "scaleY": 1,
+                        "scaleZ": 1
+                    }
+                },
+                {
+                    "CardID": 200,
+                    "Name": "Card",
+                    "Nickname": "Forest",
+                    "Transform": {
+                        "posX": 0,
+                        "posY": 0,
+                        "posZ": 0,
+                        "rotX": 0,
+                        "rotY": 180,
+                        "rotZ": 180,
+                        "scaleX": 1,
+                        "scaleY": 1,
+                        "scaleZ": 1
+                    }
+                },
+                {
+                    "CardID": 300,
+                    "Name": "Card",
+                    "Nickname": "Pompeii",
+                    "Transform": {
+                        "posX": 0,
+                        "posY": 0,
+                        "posZ": 0,
+                        "rotX": 0,
+                        "rotY": 180,
+                        "rotZ": 180,
+                        "scaleX": 1,
+                        "scaleY": 1,
+                        "scaleZ": 1
+                    }
+                }
+            ],
+            "DeckIDs": [
+                100,
+                200,
+                200,
+                200,
+                300
+            ],
+            "CustomDeck": {
+                "1": {
+                    "FaceURL": "https://cards.scryfall.io/normal/front/6/8/68f91092-b679-46c1-9f0c-3b286ee1d02f.jpg?1696636514",
+                    "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
+                    "NumHeight": 1,
+                    "NumWidth": 1,
+                    "BackIsHidden": true,
+                    "UniqueBack": false
+                },
+                "2": {
+                    "FaceURL": "https://cards.scryfall.io/normal/front/f/9/f954219a-fd4b-4fb1-945f-7950efc1d975.jpg?1699045105",
+                    "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
+                    "NumHeight": 1,
+                    "NumWidth": 1,
+                    "BackIsHidden": true,
+                    "UniqueBack": false
+                },
+                "3": {
+                    "FaceURL": "https://cards.scryfall.io/normal/front/a/5/a549ee7a-276b-45eb-a2c7-f74c85dc6a0d.jpg?1696637791",
+                    "BackURL": "https://i.imgur.com/Hg8CwwU.jpeg",
+                    "NumHeight": 1,
+                    "NumWidth": 1,
+                    "BackIsHidden": true,
+                    "UniqueBack": false
+                }
+            },
+            "Transform": {
+                "posX": 0,
+                "posY": 0,
+                "posZ": 0,
+                "rotX": 0,
+                "rotY": 180,
+                "rotZ": 180,
+                "scaleX": 1,
+                "scaleY": 1,
+                "scaleZ": 1
+            }
+        }
+    ]
+}
