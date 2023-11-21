@@ -1,5 +1,5 @@
 import os
-from typing import List, Dict, Any, Tuple
+from typing import List, Dict, Any, Tuple, Optional
 import json
 from datetime import datetime
 
@@ -28,18 +28,23 @@ def load_from_txt(file_path: str):
     return sf_cards
 
 
-def sf_cards_to_tts_object(sf_cards: List[Tuple[int, Any]]):
+def sf_cards_to_json(input_cards: List[Tuple[int, Any]]):
     obj_states: List[ObjectState] = []
     contained_objs: List[ContainedObject] = []
     deck_ids: List[int] = []
     current_card: int = 0
     custom_deck: Dict[str, CustomDeck] = {}
-    for (count, card) in sf_cards:
+    for (count, card) in input_cards:
         current_card += 1
 
         contained_objs.append(ContainedObject(card_id=current_card * 100, nickname=card["name"]))
-        custom_deck_obj: CustomDeck = CustomDeck(face_url=card["image_uris"][
-            "normal"])  # ToDo: double faces (check if key "card_faces" in  response and get 2. items url)
+
+        custom_deck_obj: CustomDeck
+        if "card_faces" in card:
+            custom_deck_obj = CustomDeck(face_url=card["image_uris"]["normal"],
+                                         back_url=card["card_faces"][1][""]["image_uris"]["normal"])
+        else:
+            custom_deck_obj = CustomDeck(face_url=card["image_uris"]["normal"])
         custom_deck[str(current_card)] = custom_deck_obj
         for x in range(count):
             deck_ids.append(current_card * 100)
@@ -48,16 +53,14 @@ def sf_cards_to_tts_object(sf_cards: List[Tuple[int, Any]]):
                                          deck_ids=deck_ids, custom_deck=custom_deck)
     obj_states.append(obj_state)
 
-    return TTSObject(object_states=obj_states)
+    return json.dumps(TTSObject(object_states=obj_states).to_dict(), indent=4)
 
 
 if __name__ == '__main__':
     sf_cards = load_from_txt("data/input/deck_file.txt")
     print(f"{len(sf_cards)} cards loaded from file")
 
-    tts_obj = sf_cards_to_tts_object(sf_cards=sf_cards)
-
-    json_obj = json.dumps(tts_obj.to_dict(), indent=4)
+    json_obj = sf_cards_to_json(input_cards=sf_cards)
 
     dt = datetime.now().strftime("%Y%m%d%H%M%S")
     dest_file = f"data/output/tts_deck_{dt}.json"
