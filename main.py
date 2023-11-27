@@ -25,10 +25,11 @@ def load_from_txt(file_path: str):
         if sf_card.status_code == 200:
             sf_tuple = (c.count, sf_card.json())
             sf_cards.append(sf_tuple)
+    print(f"{len(sf_cards)} cards loaded from file")
     return sf_cards
 
 
-def sf_cards_to_json(input_cards: List[Tuple[int, Any]]):
+def sf_cards_to_json(input_cards: List[Tuple[int, Any]]) -> str:
     obj_states: List[ObjectState] = []
     contained_objs: List[ContainedObject] = []
     deck_ids: List[int] = []
@@ -52,14 +53,16 @@ def sf_cards_to_json(input_cards: List[Tuple[int, Any]]):
     return json.dumps(TTSObject(object_states=obj_states).to_dict(), indent=4)
 
 
-if __name__ == '__main__':
-    sf_cards = load_from_txt("data/input/deck_file.txt")
-    print(f"{len(sf_cards)} cards loaded from file")
-
-    json_obj = sf_cards_to_json(input_cards=sf_cards)
-
+def save_file(content: str):
     dt = datetime.now().strftime("%Y%m%d%H%M%S")
     dest_file = f"data/output/tts_deck_{dt}.json"
     os.makedirs(os.path.dirname(dest_file), exist_ok=True)
     with open(dest_file, 'w') as dest_file:
-        dest_file.write(json_obj)
+        dest_file.write(content)
+    print(f"File saved:\n\t{dest_file.name}")
+
+
+if __name__ == '__main__':
+    sf_cards = load_from_txt("data/input/deck_file.txt")
+    json_obj = sf_cards_to_json(input_cards=sf_cards)
+    save_file(content=json_obj)
