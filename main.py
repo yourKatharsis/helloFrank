@@ -1,14 +1,14 @@
-import os
-from typing import List, Dict, Any, Tuple, Optional
 import json
+import os
 from datetime import datetime
+from typing import List, Dict, Any, Tuple
 
+from Helper.TxtCard import TxtCard
 from ScryfallService import ScryfallService
 from TTSClasses.ContainedObject import ContainedObject
 from TTSClasses.CustomDeck import CustomDeck
 from TTSClasses.ObjectState import ObjectState
 from TTSClasses.TTSObject import TTSObject
-from Helper.TxtCard import TxtCard
 
 
 def load_from_txt(file_path: str):
@@ -36,9 +36,7 @@ def sf_cards_to_json(input_cards: List[Tuple[int, Any]]):
     custom_deck: Dict[str, CustomDeck] = {}
     for (count, card) in input_cards:
         current_card += 1
-
         contained_objs.append(ContainedObject(card_id=current_card * 100, nickname=card["name"]))
-
         custom_deck_obj: CustomDeck
         if "card_faces" in card:
             custom_deck_obj = CustomDeck(face_url=card["image_uris"]["normal"],
@@ -48,11 +46,9 @@ def sf_cards_to_json(input_cards: List[Tuple[int, Any]]):
         custom_deck[str(current_card)] = custom_deck_obj
         for x in range(count):
             deck_ids.append(current_card * 100)
-
     obj_state: ObjectState = ObjectState(contained_objects=contained_objs,
                                          deck_ids=deck_ids, custom_deck=custom_deck)
     obj_states.append(obj_state)
-
     return json.dumps(TTSObject(object_states=obj_states).to_dict(), indent=4)
 
 
